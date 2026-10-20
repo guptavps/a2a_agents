@@ -1,0 +1,4 @@
+export PROJECT_ID="genai-ai-agents-project"
+export LOCATION="global"
+export BUCKET="genai-ai-agents-project-loan-policy-docs"
+export DATA_STORE_ID="loan-policy-store"

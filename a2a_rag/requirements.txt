@@ -1,0 +1,6 @@
+a2a-sdk==1.1.2
+google-adk==2.8.0
+pypdf>=6,<7
+python-dotenv>=1,<2
+sse-starlette>=2,<4
+uvicorn>=0.30,<1

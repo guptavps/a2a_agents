@@ -1,0 +1,9 @@
+Loan Closure Policy
+
+A loan closure request must include the loan application ID and the requester's verified identity.
+
+Before closure, servicing staff must confirm that all required payoff amounts have been received and that no open dispute or legal hold exists.
+
+The closure confirmation must record the closure date, the application ID, the final status, and the servicing representative or system that performed the action.
+
+If a required verification is missing, the request must not be confirmed as closed. Escalate the request to the servicing operations team.

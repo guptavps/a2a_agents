@@ -1,0 +1,9 @@
+project_id: genai-ai-agents-project
+location: us-central1
+max_results: 5
+embedding_model: gemini-embedding-001
+embedding_dimensions: 768
+data_store_id: ""
+index_id: "5750276488477802496"
+index_endpoint_id: "6416580534910058496"
+index_endpoint_domain: "596876783.us-central1-315667794922.vdb.vertexai.goog"
