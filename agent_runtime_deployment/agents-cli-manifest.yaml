@@ -1,0 +1,9 @@
+name: loan-closure-agent
+agent_directory: .
+region: us-central1
+framework: google-adk
+create_params:
+  deployment_target: agent_runtime
+  root_agent_name: loan_closure_agent
+  session_type: agent_platform_sessions
+  is_a2a: true
