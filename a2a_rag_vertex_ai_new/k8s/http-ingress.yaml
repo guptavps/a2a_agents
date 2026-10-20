@@ -1,0 +1,34 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: loan-policy-rag-backend
+  namespace: default
+spec:
+  healthCheck:
+    checkIntervalSec: 15
+    timeoutSec: 5
+    healthyThreshold: 1
+    unhealthyThreshold: 3
+    type: HTTP
+    requestPath: /healthz
+    port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: loan-policy-rag-http
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.allow-http: "true"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: loan-policy-rag-agent
+                port:
+                  number: 80

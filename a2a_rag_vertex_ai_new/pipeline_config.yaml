@@ -1,0 +1,34 @@
+project_id: genai-ai-agents-project
+region: us-central1
+staging_bucket: gs://replace-with-your-staging-bucket
+
+gcs:
+  bucket_uri: gs://loan-policy-bucket-001
+  object_name: loan-policy/v1/loan_closure_policy.pdf
+  manifest_object_name: loan-policy/v1/loan_closure_policy_manifest.jsonl
+  overwrite_existing: false
+
+vector_search:
+  index_display_name: loan-policy-index-001
+  index_dimensions: 768
+  distance_measure: COSINE_DISTANCE
+  approximate_neighbors_count: 10
+  shard_size: SHARD_SIZE_SMALL
+  leaf_node_embedding_count: 500
+  endpoint_display_name: loan-policy-index-endpoint
+  public_endpoint_enabled: true
+  deployed_index_id: loan_policy_deployed_v2
+  retrieval_neighbors: 5
+  min_replica_count: 1
+  max_replica_count: 1
+
+rag:
+  corpus_display_name: loan-policy-corpus
+  embedding_model: text-embedding-005
+  chunk_size: 1000
+  chunk_overlap: 100
+
+gemini:
+  model: gemini-2.5-flash
+  temperature: 0.2
+  max_output_tokens: 1024
