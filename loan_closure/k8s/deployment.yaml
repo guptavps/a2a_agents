@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-closure-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loan-closure-agent
+  template:
+    metadata:
+      labels:
+        app: loan-closure-agent
+    spec:
+      containers:
+        - name: loan-closure-agent
+          image: ${IMAGE}
+          ports:
+            - name: http
+              containerPort: 8090
+          env:
+            - name: LOAN_CLOSURE_AGENT_PORT
+              value: "${AGENT_PORT}"
+            - name: LOAN_CLOSURE_AGENT_URL
+              value: "${AGENT_URL}"
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: loan-closure-secrets
+                  key: google-api-key
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            failureThreshold: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 30

@@ -1,0 +1,4 @@
+a2a-sdk==1.1.2
+google-adk[extensions]
+mcp>=1.24,<2
+uvicorn

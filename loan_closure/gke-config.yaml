@@ -1,0 +1,10 @@
+project_id: ""
+region: us-central1
+cluster: loan-closure-cluster
+repository: loan-closure
+image_name: loan-closure-agent
+image_tag: latest
+namespace: default
+service_type: ClusterIP
+agent_port: 8090
+agent_url: http://34.9.158.18:8090
